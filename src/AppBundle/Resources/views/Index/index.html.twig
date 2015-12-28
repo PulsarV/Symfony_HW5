@@ -12,7 +12,7 @@
                 {% for country in countries %}
                     <tr>
                         <td class="column col-md-1"><a href="{{ path('countryView', {'countryName': country.name}) }}"><img class="img-thumbnail" src="{{ asset("images/#{country.flag}") }}"></a></td>
-                        <td><a href="{{ path('teamView', {'teamName': country.name}) }}">{{ country.name }} national football team</a></td>
+                        <td><a href="{{ path('teamView', {'teamName': country.team.name}) }}">{{ country.team.name }} national football team</a></td>
                     </tr>
                 {% endfor %}
             </table>

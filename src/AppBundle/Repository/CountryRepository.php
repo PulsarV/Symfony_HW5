@@ -12,13 +12,34 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findCountryByName($country)
     {
-        $dql = "SELECT c, t  FROM AppBundle:Country c JOIN c.team t WHERE c.name = :country";
-        return $this->getEntityManager()->createQuery($dql)->setParameter('country', $country)->getOneOrNullResult();
+        $dql = "SELECT c, t
+                FROM AppBundle:Country c
+                JOIN c.team t
+                WHERE c.name = :country";
+        return $this->getEntityManager()
+                ->createQuery($dql)
+                ->setParameter('country', $country)
+                ->getOneOrNullResult();
+    }
+
+    public function findCountryById($countryId)
+    {
+        $dql = "SELECT c, t
+                FROM AppBundle:Country c
+                JOIN c.team t
+                WHERE c.id = :countryId";
+        return $this->getEntityManager()
+                ->createQuery($dql)
+                ->setParameter('countryId', $countryId)
+                ->getOneOrNullResult();
     }
 
     public function findAllCountries()
     {
-        $dql = "SELECT c, t FROM AppBundle:Country c JOIN c.team t ORDER BY c.name ASC";
+        $dql = "SELECT c, t
+                FROM AppBundle:Country c
+                JOIN c.team t
+                ORDER BY c.name ASC";
         return $this->getEntityManager()->createQuery($dql)->getResult();
     }
 }

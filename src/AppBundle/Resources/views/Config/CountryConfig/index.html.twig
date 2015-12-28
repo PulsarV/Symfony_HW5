@@ -1,0 +1,28 @@
+{% extends ':config:baseConfig.html.twig' %}
+
+{% block title %}
+    {{ parent() }}
+    {{ ' - Countries' }}
+{% endblock %}
+{% block header %}Countries{% endblock %}
+{% block content %}
+    <div class="content">
+        <table class="table table-responsive table-striped table-hover text-center">
+            <tr>
+                <th class="column col-sm-1 text-center" colspan="2"><a href="{{ path('countryConfigAdd') }}"><img src="{{ asset('images/add.png') }}"></a></th>
+                <th class="column col-sm-1 text-center">Flag</th>
+                <th class="column col-lg-2 text-center">Country name</th>
+                <th class="column col-lg-9 text-center">Country description</th>
+            </tr>
+            {% for country in countries %}
+                <tr>
+                    <td><a href="{{ path('countryConfigEdit', {'countryId': country.id}) }}"><img src="{{ asset('images/edit.png') }}"></a></td>
+                    <td><a href="{{ path('countryConfigDelete', {'countryId': country.id}) }}"><img src="{{ asset('images/delete.png') }}"></a></td>
+                    <td><img class="img-thumbnail" src="{{ asset("images/#{country.flag}") }}"></td>
+                    <td>{{ country.name }}</td>
+                    <td>{{  country.description|slice(0, 100) }} ...</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

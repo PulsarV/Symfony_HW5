@@ -1,0 +1,13 @@
+{% extends ':config:baseConfig.html.twig' %}
+
+{% block title %}Editing country data{% endblock %}
+
+{% block header %}Editing country data{% endblock %}
+
+{% block content %}
+    {% form_theme edit_form 'bootstrap_3_layout.html.twig' %}
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <input type="submit" value="Save data" class="btn btn-default" />
+    {{ form_end(edit_form) }}
+{% endblock %}
