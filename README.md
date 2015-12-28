@@ -4,3 +4,10 @@ Symfony Homework #5
 
 Author:  Volodymyr Kravchuk  
 Subject: EURO 2016
+
+To install, follow these steps:
+-------------------------------
+
+1. Run git clone https://github.com/PulsarV/Symfony_HW5.git %project_directory%
+2. Change current directory to %project_directory%
+3. Run ./project_config.sh
