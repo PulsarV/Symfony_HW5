@@ -1,0 +1,23 @@
+AppBundle\Entity\Country:
+  country{0..23}:
+    name(unique): <randomElement(['Albania', 'Austria', 'Belgium', 'Croatia', 'Czech Republic', 'England', 'France', 'Germany', 'Hungary', 'Iceland', 'Ireland', 'Italy', 'Northern Ireland', 'Poland', 'Portugal', 'Romania', 'Russia', 'Slovakia', 'Spain', 'Sweden', 'Switzerland', 'Turkey', 'Ukraine', 'Wales'])>
+    flag: <($name)>.png
+    description: <text(5000)>
+
+AppBundle\Entity\Team:
+  team{0..23}:
+    name(unique): @country<current()>->name
+    description: <text(5000)>
+    country: @country<current()>
+
+AppBundle\Entity\Player:
+  player{0..383}:
+    name(unique): <firstNameMale()> <lastName()>
+    description: <text(5000)>
+    team: @team<(floor($fake('current') / 16))>
+
+AppBundle\Entity\Coach:
+  coach{0..95}:
+    name(unique): <firstNameMale()> <lastName()>
+    description: <text(5000)>
+    team: @team<(floor($fake('current') / 4))>

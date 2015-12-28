@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Countries members
+{% endblock %}
+{% block header %}
+    Countries members
+{% endblock %}
+{% block content %}
+    {% for country in countries %}
+        <a class="btn btn-default col-lg-4" href="{{ path('countryView', { 'countryName': country.name }) }}" role="button">{{ country.name }}</a>
+    {% endfor %}
+{% endblock %}

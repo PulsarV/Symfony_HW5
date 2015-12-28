@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - {{ team.name }}  national football team
+{% endblock %}
+{% block header %}{{ team.name }} national football team{% endblock %}
+{% block content %}
+    {{ team.description }}
+    <br><br>
+    <p><a class="btn btn-default" href="{{ path('playerIndex', { 'teamName': team.name }) }}" role="button">Team players</a></p>
+    <p><a class="btn btn-default" href="{{ path('coachIndex', { 'teamName': team.name }) }}" role="button">Team coaches</a></p>
+{% endblock %}

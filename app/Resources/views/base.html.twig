@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="Advanced PHP Symfony HW #2">
+        <meta name="author" content="Volodymyr Kravchuk">
+        <link rel="icon" href="{{ asset('favicon.ico') }}">
+
+        <title>{% block title %}EURO 2016{% endblock %}</title>
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="masthead">
+                <h3 class="text-muted">EURO 2016</h3>
+                <nav>
+                    <ul class="nav nav-justified">
+                        <li class="active"><a href="{{ path('homePage') }}">Qualification</a></li>
+                        <li><a href="#">Group stage</a></li>
+                        <li><a href="#">Round of 16</a></li>
+                        <li><a href="#">Quarter-finals</a></li>
+                        <li><a href="#">Semi-finals</a></li>
+                        <li><a href="#">Final</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <h1 class="text-center">{% block header %}{% endblock %}</h1>
+
+            {% block body %}
+                <div class="row text-justify">
+                    <div class="col-lg-12">
+                        {% block content %}{% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+
+            <footer class="footer">
+                <p>&copy; Geekhub 2015</p>
+            </footer>
+        </div> <!-- /container -->
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

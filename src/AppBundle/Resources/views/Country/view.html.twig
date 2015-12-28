@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} - Country info: {{ country.name }}
+{% endblock %}
+{% block header %}
+    Country info {{ country.name }}
+{% endblock %}
+{% block content %}
+    {{ country.description }}
+    <br><br>
+    <p><a class="btn btn-default"  href="{{ path('teamView', { 'teamName': country.name }) }}" role="button">{{ country.name }} national football team</a></p>
+{% endblock %}

@@ -1,0 +1,47 @@
+AppBundle\Entity\Country:
+  country0:
+    name: Ukraine
+    flag: <($name)>.png
+    description: <text(1000)>
+  country1:
+      name: Ukraine-Ukraine Ukraine.Ukraine'
+      flag: <($name)>.png
+      description: <text(1000)>
+  country2:
+        name: Italy
+        flag: <($name)>.png
+        description: <text(1000)>
+
+AppBundle\Entity\Team:
+  team{0..2}:
+    name: '@country<current()>->name'
+    description: <text(1000)>
+    country: '@country<current()>'
+
+AppBundle\Entity\Player:
+  player0:
+    name(unique): Shevchenko
+    description: <text(1000)>
+    team: '@team0'
+  player1:
+      name(unique): Shevchenko-Petrenko Motrenko.Salogub'
+      description: <text(1000)>
+      team: '@team0'
+  player{2..14}:
+    name(unique): <firstNameMale()> <lastName()>
+    description: <text(1000)>
+    team: '@team<(floor($fake("current") / 5))>'
+
+AppBundle\Entity\Coach:
+  coach0:
+      name(unique): Shevchenko
+      description: <text(1000)>
+      team: '@team0'
+  coach1:
+      name(unique): Shevchenko-Petrenko Motrenko.Salogub'
+      description: <text(1000)>
+      team: '@team0'
+  coach{2..5}:
+    name(unique): <firstNameMale()> <lastName()>
+    description: <text(1000)>
+    team: '@team<(floor($fake("current") / 2))>'
