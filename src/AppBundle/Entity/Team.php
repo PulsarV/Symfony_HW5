@@ -43,12 +43,12 @@ class Team
     protected $country;
 
     /**
-     * @ORM\OneToMany(targetEntity="Player", mappedBy="team")
+     * @ORM\OneToMany(targetEntity="Player", mappedBy="team", cascade={"persist", "remove"})
      */
     protected $players;
 
     /**
-     * @ORM\OneToMany(targetEntity="Coach", mappedBy="team")
+     * @ORM\OneToMany(targetEntity="Coach", mappedBy="team", cascade={"persist", "remove"})
      */
     protected $coaches;
 
