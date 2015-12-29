@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use AppBundle\Entity\Country;
 
 class CountryType extends AbstractType
 {
@@ -17,9 +19,10 @@ class CountryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('flag')
             ->add('name', TextType::class)
             ->add('description', TextareaType::class)
+            ->add('flag', TextType::class, ['label' => 'Current country flag:', 'disabled' => true])
+            ->add('flagImg', FileType::class, ['label' => 'New country flag:', 'required' => false])
         ;
     }
 

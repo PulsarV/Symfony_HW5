@@ -26,7 +26,7 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
     {
         $dql = "SELECT c, t
                 FROM AppBundle:Country c
-                JOIN c.team t
+                LEFT JOIN c.team t
                 WHERE c.id = :countryId";
         return $this->getEntityManager()
                 ->createQuery($dql)
@@ -38,7 +38,7 @@ class CountryRepository extends \Doctrine\ORM\EntityRepository
     {
         $dql = "SELECT c, t
                 FROM AppBundle:Country c
-                JOIN c.team t
+                LEFT JOIN c.team t
                 ORDER BY c.name ASC";
         return $this->getEntityManager()->createQuery($dql)->getResult();
     }

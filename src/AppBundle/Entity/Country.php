@@ -35,6 +35,24 @@ class Country
      */
     protected $flag;
 
+    protected $flagImg;
+
+    /**
+     * @return mixed
+     */
+    public function getFlagImg()
+    {
+        return $this->flagImg;
+    }
+
+    /**
+     * @param mixed $flagImg
+     */
+    public function setFlagImg($flagImg)
+    {
+        $this->flagImg = $flagImg;
+    }
+
     /**
      * @var string
      *
@@ -43,7 +61,7 @@ class Country
     protected $description;
 
     /**
-     * @ORM\OneToOne(targetEntity="Team", mappedBy="country")
+     * @ORM\OneToOne(targetEntity="Team", mappedBy="country", cascade={"persist", "remove"})
      */
     protected $team;
 

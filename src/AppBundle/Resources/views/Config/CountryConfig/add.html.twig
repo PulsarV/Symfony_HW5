@@ -1,0 +1,15 @@
+{% extends ':config:baseConfig.html.twig' %}
+
+{% block title %}Add new country{% endblock %}
+
+{% block header %}Add new country{% endblock %}
+
+{% block content %}
+    <div class="content col-lg-offset-3 col-lg-6">
+        {% form_theme add_form 'bootstrap_3_layout.html.twig' %}
+        {{ form_start(add_form) }}
+        {{ form_widget(add_form) }}
+        <input type="submit" value="Add country" class="btn btn-default" />
+        {{ form_end(add_form) }}
+    </div>
+{% endblock %}

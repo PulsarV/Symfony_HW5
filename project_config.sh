@@ -9,8 +9,8 @@ sudo composer self-update
 composer install
 rm -rf app/cache/*
 rm -rf app/logs/*
-setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
-setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs
+setfacl -R -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs web/uploads/images
+setfacl -dR -m u:www-data:rwx -m u:`whoami`:rwx app/cache app/logs web/uploads/images
 
 echo 
 echo SETUP FRONTEND ...
